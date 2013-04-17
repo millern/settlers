@@ -1,10 +1,43 @@
 // declare collections
 // this code should be included in both the client and the server
 Gameboard = function() {
-  this.hexNodes = "Nick";
+ 
+  this.hexNodes = [];
+  for (var i = 0; i<7; i++){
+    this.hexNodes[i] = [];
+    for (var j=0;j<7;j++){
+     this.hexNodes[i][j] = new Hex("", 0, false,i,j);
+    }
+  }
+  this.hexVerts = [];
+  this.hexSides = [];
+  for (var i = 0; i<16; i++){
+    this.hexVerts[i] = [];
+    this.hexSides[i] = [];
+    for (var j=0;j<16;j++){
+      this.hexVerts[i][j] = new Vert("",i,j);
+      this.hexSides[i][j] = new Side("",i,j);
+    }
+  }
 }
 
-
+  function Hex(terrain, pointValue, robber,x,y) {
+    this.terrain = terrain;
+    //this.pointValue = pointValue;
+    this.robber = robber;
+    this.x = x;
+    this.y = y;
+  }
+  function Vert(param,x,y){
+    this.param = param;
+    this.x = x;
+    this.y = y;
+  }
+  function Side(param,x,y){
+    this.param = param;
+    this.x = x;
+    this.y = y;
+  }
 var GamePieces = new Meteor.Collection("gamepieces");
 var Gameboards = new Meteor.Collection("gameboard", {
   transform: function() {return new Gameboard();}
@@ -17,6 +50,9 @@ Gameboards.allow({
 });
 
 if (Meteor.isClient) {
+
+
+
   Template.hello.events({
     'click #input' : function () {
       // template data, if any, is available in 'this'
@@ -35,6 +71,11 @@ if (Meteor.isClient) {
       var result = Meteor.call('add');
     }
   });
+
+  Template.gameboard.generate = function() {
+    console.log(Gameboards.find({}).fetch());
+    return Gameboards.find({}).fetch();
+  };
 
 
    
@@ -56,7 +97,6 @@ if (Meteor.isServer) {
     });
 
   Meteor.startup(function () {
-    GameBoards.insert({name: 'board 1'});
     // code to run on server at startup
 
     Gameboards.insert({});
