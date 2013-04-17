@@ -4,9 +4,11 @@
 
 <body>
   {{> hello}}
+  {{> gameboard}}
 </body>
 
 <template name="hello">
+
 	<h2>How many games?</h2>
   <input type="button" value="Number of Games" id="input"/>
 
@@ -15,4 +17,10 @@
 
   <h2>Add Game board</h2>
   <input type="button" value="Add" id="addBoard" />
+
+</template>
+
+<template name="gameboard">
+	<h2>Game Board</h2>
+	{{generate}}
 </template>
