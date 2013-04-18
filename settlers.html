@@ -3,9 +3,34 @@
 </head>
 
 <body>
-  {{> hello}}
+  
   {{> gameboard}}
+ 
 </body>
+
+
+
+<template name="gameboard">
+	<article id="gameWrapper">
+	<h2>Settlers of Catan</h2>
+	<div>
+	{{#each hexNodes}}
+		{{#each this}}
+			<div class="hexagon-wrapper">
+				<div class="hexagon hexagon2">
+					<div class="hexagon-in1">
+						<div class="hexagon-in2 {{this.x}} {{this.y}} {{this.terrain}}">
+							<p>{{this.x}} , {{this.y}}</p>
+						</div>
+					</div>
+				</div>		
+			</div>
+		{{/each}}
+	{{/each}}
+	</p>
+	</article>
+</template>
+
 
 <template name="hello">
 
@@ -18,9 +43,4 @@
   <h2>Add Game board</h2>
   <input type="button" value="Add" id="addBoard" />
 
-</template>
-
-<template name="gameboard">
-	<h2>Game Board</h2>
-	{{generate}}
 </template>

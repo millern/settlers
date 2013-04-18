@@ -1,12 +1,12 @@
 // declare collections
 // this code should be included in both the client and the server
 Gameboard = function() {
- 
+  this.name = "Nick";
   this.hexNodes = [];
   for (var i = 0; i<7; i++){
     this.hexNodes[i] = [];
     for (var j=0;j<7;j++){
-     this.hexNodes[i][j] = new Hex("", 0, false,i,j);
+     this.hexNodes[i][j] = new Hex("water", 0, false,i,j);
     }
   }
   this.hexVerts = [];
@@ -17,13 +17,13 @@ Gameboard = function() {
     for (var j=0;j<16;j++){
       this.hexVerts[i][j] = new Vert("",i,j);
       this.hexSides[i][j] = new Side("",i,j);
-    }
+    } 
   }
 }
 
   function Hex(terrain, pointValue, robber,x,y) {
     this.terrain = terrain;
-    //this.pointValue = pointValue;
+    this.pointValue = pointValue;
     this.robber = robber;
     this.x = x;
     this.y = y;
@@ -72,11 +72,26 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.gameboard.generate = function() {
-    console.log(Gameboards.find({}).fetch());
-    return Gameboards.find({}).fetch();
+  Template.gameboard.Gameboards = function() {
+      var currentGame = Gameboards.findOne({});
+      console.log("Current Game: " + currentGame);  //[0].hexNodes[0][0].terrain;
+      return currentGame;
   };
+  Template.gameboard.hexNodes = function() {
 
+    var gameBoardEx = Gameboards.findOne({});
+    if (gameBoardEx){
+      var hexNodesa = gameBoardEx.hexNodes;
+      console.log("HexNodes:");
+      console.log(hexNodesa[0][0].terrain);
+    return hexNodesa;
+    }
+
+  };
+  //   Template.gameboard.generate1 = function() {
+  //   console.log(Gameboards.find({}).fetch());
+  //   return Gameboards.find({}).fetch().length;
+  // };
 
    
 
