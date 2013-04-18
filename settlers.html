@@ -5,7 +5,7 @@
 <body>
   
   {{> gameboard}}
- 
+  {{> hello}}
 </body>
 
 
@@ -20,7 +20,7 @@
 				<div class="hexagon hexagon2">
 					<div class="hexagon-in1">
 						<div class="hexagon-in2 {{this.x}} {{this.y}} {{this.terrain}}">
-							<p>{{this.x}} , {{this.y}}</p>
+							<p>{{this.pointValue}}</p>
 						</div>
 					</div>
 				</div>		
@@ -34,8 +34,8 @@
 
 <template name="hello">
 
-	<h2>How many games?</h2>
-  <input type="button" value="Number of Games" id="input"/>
+	<h2>New Board</h2>
+  <input type="button" value="New Board" id="newBoard"/>
 
   <h2>Purge Data</h2>
   <input type="button" value="Purge" id="purge" />
