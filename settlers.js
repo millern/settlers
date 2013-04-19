@@ -10,8 +10,6 @@ Gameboards.allow({
 
 if (Meteor.isClient) {
 
-
-
   Template.hello.events({
     'click #newBoard' : function () {
       // template data, if any, is available in 'this'
@@ -19,7 +17,6 @@ if (Meteor.isClient) {
         //console.log(GamePieces.find({}).fetch()[0]);
         var result = Meteor.call("purge");
         var result2 = Meteor.call("add");
-    
     },
     'click #purge' : function() {
       //GamePieces.remove({});
@@ -32,6 +29,24 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.gameboard.events({
+    'click .vertex' : function() {
+      console.log("vertex position");
+      console.log(this.x);
+      console.log(this.y);
+      console.log("Coords: " + this.posX + " , " + this.posY);
+    },
+    'click .hexagon-in2' : function() {
+      console.log("hexagon position");
+      console.log(this.x);
+      console.log(this.y);
+      console.log("Coords: " + this.posX + " , " + this.posY);
+      for (var i = 0; i < 6; i++){
+        var num = Gameboards.findOne({}).findVerticesByHexagon(this)[i].num;
+        $("#vertex" + num).toggleClass('selected');
+      }
+    }
+  });
   Template.gameboard.Gameboards = function() {
       var currentGame = Gameboards.findOne({});
       console.log("Current Game: " + currentGame);  //[0].hexNodes[0][0].terrain;
