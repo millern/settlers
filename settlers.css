@@ -1,15 +1,15 @@
 /* CSS declarations go here */
 article#gameWrapper {
-	padding-top:1em;
 	margin: 0 auto;
 	width: 800px;
-	padding-left: 50px;
+	padding: 0;
 	border: 4px solid black;
+	position: relative;
 }
 
 .hexagon-wrapper {
-	width: 100px;
-	height: 115px;
+	width: 97px;
+	height: 111px;
 	position: relative;
 	display: inline-block;
 }
@@ -17,7 +17,7 @@ article#gameWrapper {
 	position: absolute;
 	width: 100px;
 	height: 200px;
-	top: -42px;
+	top: -40px;
 }
 .hexagon {
 	overflow: hidden;
@@ -58,7 +58,7 @@ article#gameWrapper {
 .hexagon-in2 p {
 	color: black;
 	z-index: 1000;
-	margin-top: 85px;
+	margin-top: 82px;
 	width: 100%;
 	color: white;
 	font-weight: bold;
@@ -78,12 +78,15 @@ article#gameWrapper {
 }
 .clay {
 	background: url('clay.jpg');
+	background-size: 175%;
 }
 .forest {
 	background: url('forest.jpg');
 }
 .rock {
 	background: url('rock.jpg');
+	background-position: 20% 50%;
+	background-size: 150%;
 }
 .wheat {
 	background: url('wheat.jpg');
@@ -97,3 +100,89 @@ article#gameWrapper {
 	background: url('desert.jpg');
 	background-position: 20% 50%;
 }
+.vertex {
+	width: 15px;
+	height: 15px;
+	background: red;
+	position: absolute;
+}
+.vertex:hover {
+	background: blue;
+}
+.row0 {
+	top: 85px;
+}
+.row1 {
+	top: 110px;
+}
+.row2 {
+	top: 170px;
+}
+.row3 {
+	top: 195px;
+}
+.row4 {
+	top: 255px;
+}
+.row5 {
+	top: 280px;
+}
+.row6 {
+	top: 340px;
+}
+.row7 {
+	top: 365px;
+}
+.row8 {
+	top: 425px;
+}
+.row9 {
+	top: 450px;
+}
+.row10 {
+	top: 510px;
+}
+.row11 {
+	top: 535px;
+}
+.col0 {
+	left: 100px;
+}
+.col1 {
+	left: 150px;
+}
+.col2 {
+	left: 200px;
+}
+.col3 {
+	left: 250px;
+}
+.col4 {
+	left: 300px;
+}
+.col5 {
+	left: 350px;
+}
+.col6 {
+	left: 400px;
+}
+.col7 {
+	left: 450px;
+}
+.col8 {
+	left: 500px;
+}
+.col9 {
+	left: 550px;
+}
+.col10 {
+	left: 600px;
+}
+
+#vertex0,#vertex2,#vertex4,#vertex6, #vertex8, #vertex10, #vertex12, #vertex14, #vertex16, #vertex18, #vertex20, #vertex23, #vertex25, #vertex27, #vertex29, #vertex31, #vertex33, #vertex35, #vertex37, #vertex39, #vertex41, #vertex43, #vertex44, #vertex46, #vertex48, #vertex50, #vertex52, #vertex54, #vertex56, #vertex58, #vertex60, #vertex62, #vertex64, #vertex67, #vertex69, #vertex71, #vertex73, #vertex75, #vertex77, #vertex79, #vertex81, #vertex83, #vertex85, #vertex87, #vertex88, #vertex90, #vertex92, #vertex94, #vertex96, #vertex98, #vertex100, #vertex102, #vertex104, #vertex106, #vertex108, #vertex110, #vertex111, #vertex113, #vertex115, #vertex117, #vertex119, #vertex121, #vertex123, #vertex125, #vertex127, #vertex129, #vertex130, #vertex131
+, #vertex1, #vertex0, #vertex11, #vertex9, #vertex21, #vertex32, #vertex22, #vertex99, #vertex109, #vertex122, #vertex120{
+	display: none;
+},
+
+
+
